@@ -1,0 +1,13 @@
+package br.com.cwi.FinAI;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FinAiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FinAiApplication.class, args);
+	}
+
+}
