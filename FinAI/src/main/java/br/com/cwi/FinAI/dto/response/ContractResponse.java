@@ -1,5 +1,6 @@
-package br.com.cwi.FinAI.controller.response;
+package br.com.cwi.FinAI.dto.response;
 
+import br.com.cwi.FinAI.domain.enums.ContractStatus;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -21,7 +22,7 @@ public class ContractResponse {
 
     private String contractData;
 
-    private String status;
+    private ContractStatus status;
 
     private String aiSummary;
 

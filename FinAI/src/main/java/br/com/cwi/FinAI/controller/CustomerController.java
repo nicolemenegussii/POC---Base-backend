@@ -1,6 +1,6 @@
 package br.com.cwi.FinAI.controller;
 
-import br.com.cwi.FinAI.controller.response.CustomerResponse;
+import br.com.cwi.FinAI.dto.response.CustomerResponse;
 import br.com.cwi.FinAI.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

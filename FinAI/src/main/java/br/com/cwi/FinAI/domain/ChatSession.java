@@ -1,6 +1,6 @@
 package br.com.cwi.FinAI.domain;
 
-import br.com.cwi.FinAI.domain.enums.ContractStatus;
+import br.com.cwi.FinAI.domain.enums.SessionStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,13 +12,13 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "contract")
+@Table(name = "chat_session")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Contract {
+public class ChatSession {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -28,29 +28,19 @@ public class Contract {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "session_id")
-    private ChatSession session;
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(nullable = false, columnDefinition = "jsonb")
+    @Builder.Default
+    private String messages = "[]";
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 20)
     @Builder.Default
-    private ContractStatus status = ContractStatus.PENDING;
-
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "contract_data", nullable = false, columnDefinition = "jsonb")
-    private String contractData;
-
-    @Column(name = "ai_summary", columnDefinition = "TEXT")
-    private String aiSummary;
+    private SessionStatus status = SessionStatus.ACTIVE;
 
     @CreationTimestamp
-    @Column(name = "contracted_at", nullable = false, updatable = false)
-    private LocalDateTime contractedAt;
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)

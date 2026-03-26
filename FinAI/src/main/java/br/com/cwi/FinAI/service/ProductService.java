@@ -1,6 +1,6 @@
 package br.com.cwi.FinAI.service;
 
-import br.com.cwi.FinAI.controller.response.ProductResponse;
+import br.com.cwi.FinAI.dto.response.ProductResponse;
 import br.com.cwi.FinAI.domain.Product;
 import br.com.cwi.FinAI.mapper.ProductResponseMapper;
 import br.com.cwi.FinAI.repository.ProductRepository;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 

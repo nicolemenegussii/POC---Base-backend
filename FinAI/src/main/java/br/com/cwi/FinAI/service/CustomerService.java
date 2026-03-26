@@ -1,6 +1,6 @@
 package br.com.cwi.FinAI.service;
 
-import br.com.cwi.FinAI.controller.response.CustomerResponse;
+import br.com.cwi.FinAI.dto.response.CustomerResponse;
 import br.com.cwi.FinAI.domain.Customer;
 import br.com.cwi.FinAI.mapper.CustomerResponseMapper;
 import br.com.cwi.FinAI.repository.CustomerRepository;

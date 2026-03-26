@@ -1,4 +1,4 @@
-package br.com.cwi.FinAI.controller.response;
+package br.com.cwi.FinAI.dto.response;
 
 import lombok.*;
 
@@ -17,7 +17,7 @@ public class CustomerResponse {
 
     private String name;
 
-    private String taxId;
+    private String cpf;
 
     private String email;
 
@@ -29,9 +29,7 @@ public class CustomerResponse {
 
     private String profileDescription;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
-    private LocalDateTime updatedAt = LocalDateTime.now();
-
-
+    private LocalDateTime updatedAt;
 }

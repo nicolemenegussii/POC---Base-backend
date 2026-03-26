@@ -1,6 +1,6 @@
 package br.com.cwi.FinAI.mapper;
 
-import br.com.cwi.FinAI.controller.response.ProductResponse;
+import br.com.cwi.FinAI.dto.response.ProductResponse;
 import br.com.cwi.FinAI.domain.Product;
 
 public class ProductResponseMapper {

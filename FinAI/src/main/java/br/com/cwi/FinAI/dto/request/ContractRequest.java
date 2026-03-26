@@ -1,6 +1,6 @@
-package br.com.cwi.FinAI.controller.request;
+package br.com.cwi.FinAI.dto.request;
 
-import br.com.cwi.FinAI.domain.Product;
+import br.com.cwi.FinAI.domain.enums.ContractStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +17,7 @@ public class ContractRequest {
 
     private String contractData;
 
-    private String status;
+    private ContractStatus status;
 
     private String aiSummary;
 

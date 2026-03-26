@@ -1,3 +1,37 @@
 spring:
   application:
     name: FinAI
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fin_ai
+    username: postgres
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  data:
+    web:
+      pageable:
+        default-page-size: 5
+        max-page-size: 50
+
+server:
+  error:
+    include-message: always
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+jwt:
+  public:
+    key: classpath:authz.pub
+  private:
+    key: classpath:authz.pem
+  expiration-seconds: 1800
+
+app:
+  cors:
+    allowed-origins: http://localhost:4200

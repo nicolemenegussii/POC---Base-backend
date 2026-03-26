@@ -1,7 +1,7 @@
 package br.com.cwi.FinAI.service;
 
-import br.com.cwi.FinAI.controller.request.ContractRequest;
-import br.com.cwi.FinAI.controller.response.ContractResponse;
+import br.com.cwi.FinAI.dto.request.ContractRequest;
+import br.com.cwi.FinAI.dto.response.ContractResponse;
 import br.com.cwi.FinAI.domain.Contract;
 import br.com.cwi.FinAI.domain.Customer;
 import br.com.cwi.FinAI.domain.Product;

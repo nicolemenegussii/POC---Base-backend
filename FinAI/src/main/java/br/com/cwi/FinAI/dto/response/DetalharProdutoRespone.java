@@ -1,4 +1,4 @@
-package br.com.cwi.FinAI.controller.response;
+package br.com.cwi.FinAI.dto.response;
 import lombok.*;
 
 import java.sql.Timestamp;

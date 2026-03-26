@@ -1,6 +1,6 @@
 package br.com.cwi.FinAI.mapper;
 
-import br.com.cwi.FinAI.controller.response.CustomerResponse;
+import br.com.cwi.FinAI.dto.response.CustomerResponse;
 import br.com.cwi.FinAI.domain.Customer;
 
 public class CustomerResponseMapper {
@@ -9,7 +9,7 @@ public class CustomerResponseMapper {
                 .id(entity.getId())
                 .email(entity.getEmail())
                 .name(entity.getName())
-                .taxId(entity.getTaxId())
+                .cpf(entity.getCpf())
                 .birthDate(entity.getBirthDate())
                 .createdAt(entity.getCreatedAt())
                 .creditScore(entity.getCreditScore())
