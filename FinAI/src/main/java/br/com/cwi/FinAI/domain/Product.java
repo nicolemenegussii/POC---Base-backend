@@ -32,11 +32,17 @@ public class Product {
 
     private String rates;
 
-    private Boolean active = true;
+    private Boolean active;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime updatedAt;
+    @PrePersist
+    public void prePersist() {
+        this.updatedAt = LocalDateTime.now();
+        this.createdAt = LocalDateTime.now();
+        this.active = true;
+    }
 
     @PreUpdate
     public void preUpdate() {
