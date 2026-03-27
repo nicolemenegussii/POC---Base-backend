@@ -6,7 +6,9 @@ import br.com.cwi.FinAI.dto.response.ApiResponse;
 import br.com.cwi.FinAI.dto.response.CustomerResponse;
 import br.com.cwi.FinAI.dto.response.LoginResponse;
 import br.com.cwi.FinAI.service.AuthService;
+import br.com.cwi.FinAI.service.CustomerAuthService;
 import jakarta.validation.Valid;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final AuthService authService;
+    private final CustomerAuthService customerAuthService;
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<LoginResponse>> login(
@@ -30,5 +33,10 @@ public class AuthController {
     public ApiResponse<CustomerResponse> register(
             @Valid @RequestBody RegisterRequest request) {
         return ApiResponse.ok(authService.register(request));
+    }
+
+    @GetMapping("/me")
+    public ApiResponse<CustomerResponse> me(){
+        return ApiResponse.ok(customerAuthService.getAuthenticatedCustomer());
     }
 }

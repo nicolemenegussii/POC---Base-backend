@@ -16,7 +16,7 @@ public class RegisterRequest {
 
     @NotBlank
     @Size(min = 11, max = 11, message = "O CPF deve conter 11 dígitos")
-    @CPF(message = "O CPF precisa se válido")
+    @CPF(message = "O CPF precisa ser válido")
     private String cpf;
 
     @NotBlank

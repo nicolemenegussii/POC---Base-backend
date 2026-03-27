@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     public ApiResponse<Void> handleValidation(MethodArgumentNotValidException ex) {
         String message = ex.getBindingResult().getFieldErrors()
                 .stream()
-                .map(FieldError::getDefaultMessage)
+                .map(error -> error.getField() + ": " + error.getDefaultMessage())
                 .collect(Collectors.joining(", "));
         return ApiResponse.error(message);
     }

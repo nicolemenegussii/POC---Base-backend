@@ -29,7 +29,7 @@ public class AuthService{
     private final JwtEncoder jwtEncoder;
     private final CustomerValidator customerValidator;
 
-    @Value("${jwt.expiration-seconds:1800}")
+    @Value("${jwt.expiration-seconds:600}")
     private long expirationSeconds;
 
     public LoginResponse authenticate(LoginRequest request) {

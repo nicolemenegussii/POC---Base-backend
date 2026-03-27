@@ -30,7 +30,7 @@ jwt:
     key: classpath:authz.pub
   private:
     key: classpath:authz.pem
-  expiration-seconds: 1800
+  expiration-seconds: 600
 
 app:
   cors:

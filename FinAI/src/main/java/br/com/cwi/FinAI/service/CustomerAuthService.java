@@ -1,6 +1,8 @@
 package br.com.cwi.FinAI.service;
 
 import br.com.cwi.FinAI.domain.Customer;
+import br.com.cwi.FinAI.dto.response.CustomerResponse;
+import br.com.cwi.FinAI.mapper.CustomerResponseMapper;
 import br.com.cwi.FinAI.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,12 +18,12 @@ public class CustomerAuthService {
 
     private final CustomerRepository customerRepository;
 
-    public Customer getAuthenticatedCustomer() {
+    public CustomerResponse getAuthenticatedCustomer() {
         Jwt jwt = (Jwt) SecurityContextHolder.getContext()
                 .getAuthentication().getCredentials();
         String email = jwt.getClaim("email");
-        return customerRepository.findByEmail(email)
-                .orElseThrow(() -> new ResponseStatusException(UNAUTHORIZED,
-                        "Authenticated customer not found"));
+        return CustomerResponseMapper.toResponse(
+                customerRepository.findByEmail(email)
+                .orElseThrow(() -> new ResponseStatusException(UNAUTHORIZED, "Usuário autenticado não foi encontrado")));
     }
 }
