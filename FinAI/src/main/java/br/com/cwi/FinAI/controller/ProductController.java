@@ -1,6 +1,7 @@
 package br.com.cwi.FinAI.controller;
 import br.com.cwi.FinAI.controller.response.ProductResponse;
 import br.com.cwi.FinAI.service.ProductService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +30,9 @@ public class ProductController {
         return productService.buscarProduto(id);
     }
 
+    @PostMapping("/criarProduto")
+    @ResponseStatus(HttpStatus.OK)
+    public void criarProduto(ProductRequest requst) {
+        productService.criarProduto(request);
+    }
 }
